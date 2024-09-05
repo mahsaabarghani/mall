@@ -74,26 +74,36 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav><!-- .navbar -->
 
-                {{--<li>
-                    @if(Auth::check())
+                <li>
+                @if(Auth::check())
+                    <li>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="get-started-btn scrollto">خروج</button>
+                        </form>
+                    </li>
+                    <li>
                         @if(Auth::user()->role==1)
-                            <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
-                            <a href="{{ route('admin.index') }}" class="get-started-btn scrollto">سوپر ادمین پنل</a>
+
+                            <a href="{{ route('superAdmin.index') }}" class="get-started-btn scrollto">سوپر
+                                ادمین
+                                پنل</a>
                         @elseif(Auth::user()->role==2)
-                            <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
-                            <a href="{{ route('admin.index') }}" class="get-started-btn scrollto">سوپر ادمین پنل</a>
+                            <a href="{{ route('mallAdmin.index') }}" class="get-started-btn scrollto">سوپر ادمین
+                                پنل</a>
                         @elseif(Auth::user()->role==3)
-                            <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
-                            <a href="{{ route('admin.index') }}" class="get-started-btn scrollto">سوپر ادمین پنل</a>
+                            <a href="{{ route('storeAdmin.index') }}" class="get-started-btn scrollto">سوپر
+                                ادمین
+                                پنل</a>
                         @elseif(Auth::user()->role==4)
-                            <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
-                            <a href="{{ route('profile.edit') }}" class="get-started-btn scrollto">پروفایل</a>
+                            <a href="{{ route('user.index') }}" class="get-started-btn scrollto">پروفایل</a>
                         @endif
-                    @else
-                        <a href="{{route('login')}}" class="get-started-btn scrollto">ورود</a>
-                        <a href="{{route('register')}}" class="get-started-btn scrollto">ثبت نام</a>
-                    @endif
-                </li>--}}
+                    </li>
+                @else
+                    <a href="{{route('login')}}" class="get-started-btn scrollto">ورود</a>
+                    <a href="{{route('register')}}" class="get-started-btn scrollto">ثبت نام</a>
+                @endif
+
             </div>
         </div>
 

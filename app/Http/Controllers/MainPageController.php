@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainPageController extends Controller
 {
@@ -12,7 +13,23 @@ class MainPageController extends Controller
     public function index()
     {
         //
-        return view('index');
+        $user = Auth::user();
+        $links = [];
+        if ($user->role == 1) {
+            $links = [
+                'admin_panel' => route('superAdmin.index')];
+        } elseif ($user->role == 2) {
+            $links = [
+                'admin_panel' => route('mallAdmin.index')];
+        } elseif ($user->role == 3) {
+            $links = [
+                'admin_panel' => route('storeAdmin.index')];
+        } elseif ($user->role == 4) {
+            $links = [
+                'admin_panel' => route('user.index')];
+        }
+
+        return view('index', compact('links'));
     }
 
     /**
