@@ -12,6 +12,7 @@ class MallAdminController extends Controller
     public function index()
     {
         //
+        return view('mallAdmin.mallAdmin');
     }
 
     /**
