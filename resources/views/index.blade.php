@@ -74,7 +74,7 @@
                     <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav><!-- .navbar -->
 
-                <li>
+                {{--<li>
                     @if(Auth::check())
                         @if(Auth::user()->role==1)
                             <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
@@ -93,7 +93,7 @@
                         <a href="{{route('login')}}" class="get-started-btn scrollto">ورود</a>
                         <a href="{{route('register')}}" class="get-started-btn scrollto">ثبت نام</a>
                     @endif
-                </li>
+                </li>--}}
             </div>
         </div>
 
