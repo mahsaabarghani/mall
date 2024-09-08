@@ -77,10 +77,13 @@
                 <li>
                 @if(Auth::check())
                     <li>
-                        <form action="{{route('logout')}}" method="post">
-                            @csrf
-                            <button type="submit" class="get-started-btn scrollto">خروج</button>
-                        </form>
+                        @if(Auth::check())
+                            <form action="{{route('logout')}}" method="post">@csrf
+                                <button class="get-started-btn scrollto">خروج</button>
+                            </form>
+
+
+                        @endif
                     </li>
                     <li>
                         @if(Auth::user()->role==1)
@@ -99,10 +102,7 @@
                             <a href="{{ route('user.index') }}" class="get-started-btn scrollto">پروفایل</a>
                         @endif
                     </li>
-                @else
-                    <a href="{{route('login')}}" class="get-started-btn scrollto">ورود</a>
-                    <a href="{{route('register')}}" class="get-started-btn scrollto">ثبت نام</a>
-                @endif
+
 
             </div>
         </div>

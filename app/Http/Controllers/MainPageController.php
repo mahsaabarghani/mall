@@ -13,23 +13,9 @@ class MainPageController extends Controller
     public function index()
     {
         //
-        $user = Auth::user();
-        $links = [];
-        if ($user->role == 1) {
-            $links = [
-                'admin_panel' => route('superAdmin.index')];
-        } elseif ($user->role == 2) {
-            $links = [
-                'admin_panel' => route('mallAdmin.index')];
-        } elseif ($user->role == 3) {
-            $links = [
-                'admin_panel' => route('storeAdmin.index')];
-        } elseif ($user->role == 4) {
-            $links = [
-                'admin_panel' => route('user.index')];
-        }
 
-        return view('index', compact('links'));
+
+        return view('index');
     }
 
     /**
